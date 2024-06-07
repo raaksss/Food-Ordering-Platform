@@ -15,8 +15,5 @@ const app=express();
 app.use(express.json());
 app.use(cors());
 
-
-app.get("/test", async (req:Request, res:Response)=>{
-res.json({message: "Hellos"});
-});
+app.use("/api/my/user", myUserRoute) //any request with api/my/user forward to myUserRoute
 
