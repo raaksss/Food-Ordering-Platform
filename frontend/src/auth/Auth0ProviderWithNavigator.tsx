@@ -20,7 +20,6 @@ function Auth0ProviderWithNavigator({ children }: Props) {
     }
 
     const onRedirectCallback = async (appState?: AppState, user?: User) => {
-       const token= await getAccessTokenSilently();
       navigate("/auth-callback")
     };
 
@@ -38,7 +37,5 @@ function Auth0ProviderWithNavigator({ children }: Props) {
 }
 
 export default Auth0ProviderWithNavigator;
-function getAccessTokenSilently() {
-    throw new Error("Function not implemented.");
-}
+
 
