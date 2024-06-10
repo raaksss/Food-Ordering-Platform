@@ -6,7 +6,7 @@ import { Separator } from "./ui/separator"
 import { useAuth0 } from "@auth0/auth0-react"
 import MobileNavLinks from "./MobileNavLinks"
 export default function MobileNav() {
-    const {isAuthenticated, loginWithRedirect, user} = useAuth0();
+    const {isAuthenticated,loginWithRedirect,user} = useAuth0();
   return (
     <Sheet>
         <SheetTrigger>
@@ -23,7 +23,7 @@ export default function MobileNav() {
                 <Separator />
                 <SheetDescription className="flex flex-col gap-4">
                     {isAuthenticated ? (<MobileNavLinks />) : (
-                     <Button className="flex-1 font-bold bg-orange-500">Log In</Button>)
+                     <Button onClick={async()=> await loginWithRedirect()} className="flex-1 font-bold bg-orange-500">Log In</Button>)
                     }
                    
                 </SheetDescription>

@@ -14,6 +14,4 @@ const MobileNavLinks = () => {
     </>
   );
 }
-
-
 export default MobileNavLinks
