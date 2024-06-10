@@ -28,7 +28,8 @@ function Auth0ProviderWithNavigator({ children }: Props) {
         <Auth0Provider
             domain={domain}
             clientId={clientId}
-            authorizationParams={{ redirect_uri: redirectUri,audience, }}
+            authorizationParams={{ redirect_uri: redirectUri,
+                audience, }}
             onRedirectCallback={onRedirectCallback}
         >
             {children}
