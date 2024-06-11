@@ -15,7 +15,7 @@ const formSchema= z.object({
 })
 
 
-export type UserFormData= z.infer<typeof formSchema>;
+type UserFormData= z.infer<typeof formSchema>;
 
 
 type Props={

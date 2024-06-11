@@ -12,31 +12,23 @@ type CreateUserRequest = {
 export const useCreateMyUser = () => {
   const { getAccessTokenSilently } = useAuth0();
 
-  const createMyUserRequest = async (user: CreateUserRequest) => {
-    const accessToken = await getAccessTokenSilently();
-    const response = await fetch(`${API_BASE_URL}/api/my/user`, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    });
-    if (!response.ok) {
-      throw new Error("Failed to create user");
-    }
-  };
+    const createMyUserRequest = async (user: CreateUserRequest) => {
+        const accessToken=await getAccessTokenSilently();
+        const response = await fetch(`${API_BASE_URL}/api/my/user`, {
+            method: "POST",
+            headers: {
+                Authorisation: `Bearer ${accessToken}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(user)
 
-  const { mutateAsync: createUser, isLoading, isError, isSuccess } = useMutation(createMyUserRequest, {
-    onSuccess: () => {
-      toast.success('User created successfully!');
-    },
-    onError: (error: any) => {
-      toast.error(`Error: ${error.message}`);
-    },
-  });
-
-  return {
+        });
+        if (!response.ok) {
+            throw new Error("Failed to create user");
+        }
+    };
+    const { mutateAsync: createUser, isLoading, isError, isSuccess } = useMutation(createMyUserRequest);
+return {
     createUser,
     isLoading,
     isError,
